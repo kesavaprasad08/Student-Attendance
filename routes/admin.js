@@ -1,20 +1,15 @@
-const path = require('path');
+const path = require("path");
 
-const express = require('express');
+const express = require("express");
 
-
-const adminController = require('../controllers/admin');
+const adminController = require("../controllers/admin");
 
 const router = express.Router();
 
+router.get("/:date", adminController.getAttendance);
 
-router.get('/2023-10-12',adminController.getAttendance)
+router.post("/:date", adminController.PostAttendance);
 
-// router.get('/expenses',adminController.getExpenses);
-
-// router.post('/add-expense',adminController.PostExpense);
-
-
-// router.post('/delete-expense',adminController.deleteExpense)
+router.get("/all/report", adminController.getReport);
 
 module.exports = router;
